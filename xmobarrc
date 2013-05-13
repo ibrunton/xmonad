@@ -1,0 +1,21 @@
+Config { font = "-*-ohsnap.icons-medium-r-normal-*-11-79-100-100-C-60-ISO8859-1"
+       , bgColor = "#222222"
+       , fgColor = "#e0e0e0"
+       , border = NoBorder
+       , borderColor = "#000000"
+       , position = Top 
+       , lowerOnStart = True
+       , hideOnStart = False
+       , persistent = True
+       , commands = [Run Date "%a %_d %b * %H:%M" "date" 10
+		, Run Com "cat" ["/home/ian/.local/share/volume"] "vol" 10
+		, Run Com "cat" ["/home/ian/.local/share/pacman_count"] "pacman" 10
+		, Run Com "cat" ["/home/ian/.local/share/aur_count"] "aur" 10
+		, Run Com "cat" ["/home/ian/.local/share/mailcount_wolfshift"] "wolf" 10
+		, Run Com "cat" ["/home/ian/.local/share/mailcount_iandbrunton"] "ian" 10
+		, Run StdinReader
+		]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template = " %StdinReader% }{  ì %vol%    º %pacman% / %aur%   Ê Wolf: %wolf% Ian: %ian%   |   %date%   "
+       }
