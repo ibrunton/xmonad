@@ -17,5 +17,5 @@ Config { font = "-*-ohsnap.icons-medium-r-normal-*-11-79-100-100-C-60-ISO8859-1"
 		]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{  <fc=#09802c>ì</fc> %vol%    <fc=#09802c>º</fc> %pacman% / %aur%   <fc=#09802c>Ê</fc> Wolf: %wolf% Ian: %ian%   <fc=#8f8f8f>|</fc>   %date%   "
+       , template = " %StdinReader% }{  <fc=#8f8f8f>ì</fc> %vol%    <fc=#8f8f8f>º</fc> %pacman% / %aur%   <fc=#8f8f8f>Ê</fc> Wolf: %wolf% Ian: %ian%   <fc=#8f8f8f>|</fc>   %date%   "
        }
