@@ -7,15 +7,15 @@ Config { font = "-*-ohsnap.icons-medium-r-normal-*-11-79-100-100-C-60-ISO8859-1"
        , lowerOnStart = True
        , hideOnStart = False
        , persistent = True
-       , commands = [Run Date "%a %_d %b * %H:%M" "date" 10
+       , commands = [Run Date "%a %_d %b <fc=#8f8f8f>*</fc> %H<fc=#8f8f8f>:</fc>%M" "date" 10
 		, Run Com "cat" ["/home/ian/.local/share/volume"] "vol" 10
-		, Run Com "cat" ["/home/ian/.local/share/pacman_count"] "pacman" 10
-		, Run Com "cat" ["/home/ian/.local/share/aur_count"] "aur" 10
-		, Run Com "cat" ["/home/ian/.local/share/mailcount_wolfshift"] "wolf" 10
-		, Run Com "cat" ["/home/ian/.local/share/mailcount_iandbrunton"] "ian" 10
+		, Run Com "hff" ["/home/ian/.local/share/pacman_count","e0e0e0","09ba55","cd5666"] "pacman" 10
+		, Run Com "hff" ["/home/ian/.local/share/aur_count","e0e0e0","09ba55","cd5666"] "aur" 10
+		, Run Com "hff" ["/home/ian/.local/share/mailcount_wolfshift","e0e0e0","09ba55","cd5666"] "wolf" 10
+		, Run Com "hff" ["/home/ian/.local/share/mailcount_iandbrunton","e0e0e0","09ba55","cd5666"] "ian" 10
 		, Run StdinReader
 		]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{  ì %vol%    º %pacman% / %aur%   Ê Wolf: %wolf% Ian: %ian%   |   %date%   "
+       , template = " %StdinReader% }{  <fc=#09802c>ì</fc> %vol%    <fc=#09802c>º</fc> %pacman% / %aur%   <fc=#09802c>Ê</fc> Wolf: %wolf% Ian: %ian%   <fc=#8f8f8f>|</fc>   %date%   "
        }
