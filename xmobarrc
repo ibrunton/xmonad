@@ -9,6 +9,7 @@ Config { font = "-*-ohsnap.icons-medium-r-normal-*-11-79-100-100-C-60-ISO8859-1"
        , persistent = True
        , commands = [Run Date "%a %_d %b <fc=#8f8f8f>*</fc> %H<fc=#8f8f8f>:</fc>%M" "date" 10
 		, Run Com "cat" ["/home/ian/.local/share/volume"] "vol" 10
+		, Run Com "dbcstat" [] "dropbox" 10
 		, Run Com "hff" ["/home/ian/.local/share/pacman_count","e0e0e0","09ba55","cd5666"] "pacman" 10
 		, Run Com "hff" ["/home/ian/.local/share/aur_count","e0e0e0","09ba55","cd5666"] "aur" 10
 		, Run Com "hff" ["/home/ian/.local/share/mailcount_wolfshift","e0e0e0","09ba55","cd5666"] "wolf" 10
@@ -17,5 +18,5 @@ Config { font = "-*-ohsnap.icons-medium-r-normal-*-11-79-100-100-C-60-ISO8859-1"
 		]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{  <fc=#8f8f8f>ì</fc> %vol%    <fc=#8f8f8f>º</fc> %pacman% / %aur%   <fc=#8f8f8f>Ê</fc> Wolf: %wolf% Ian: %ian%   <fc=#8f8f8f>|</fc>   %date%   "
+       , template = " %StdinReader% }{  <fc=#8f8f8f>ì</fc> %vol%   %dropbox%   <fc=#8f8f8f>º</fc> %pacman% / %aur%   <fc=#8f8f8f>Ê</fc> Wolf: %wolf% Ian: %ian%   <fc=#8f8f8f>|</fc>   %date%   "
        }

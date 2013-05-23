@@ -50,12 +50,12 @@ main = do
                 , focusFollowsMouse     = myFocusFollowsMouse
                 , startupHook           = do
                                                 setWMName "LG3D"
-                                                -- spawn ("nitrogen --restore")
+                                                spawn ("nitrogen --restore")
                 , manageHook            = (doF W.swapDown) <+> newManageHook
                 , layoutHook            = myLayout
                 , handleEventHook       = fullscreenEventHook
                 , logHook               = do
-                                                raiseFocused
+                                                --raiseFocused
                                                 dynamicLogWithPP $ myPP { ppOutput = hPutStrLn xmproc }
                 }
 
@@ -153,22 +153,23 @@ myPP = xmobarPP
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
 	[((mod4Mask			, xK_Return), spawn "urxvt")
-	,((mod4Mask .|. shiftMask	, xK_Return), spawn "~/bin/emet")
-	,((mod4Mask			, xK_t), spawn "~/bin/ranger_spawn.sh")
-	,((mod4Mask			, xK_p), spawn "~/bin/dmenu.sh")
-	,((mod4Mask .|. shiftMask	, xK_p), spawn "~/bin/dmenu_custom.bash")
+	,((mod4Mask .|. shiftMask	, xK_Return), spawn "~/scripts/emet")
+	,((mod4Mask			, xK_t), spawn "~/scripts/ranger_spawn.sh")
+	,((mod4Mask			, xK_p), spawn "~/scripts/dmenu.sh")
+	,((mod4Mask .|. shiftMask	, xK_p), spawn "~/scripts/dmenu_custom.bash")
 	,((mod4Mask .|. shiftMask	, xK_w), spawn "chromium")
 	,((mod4Mask  			, xK_w), spawn "firefox")
 	,((mod4Mask .|. controlMask	, xK_c), kill)
-        ,((modMask                      , xK_Tab), windows W.focusDown)
         ,((modMask                      , xK_j), windows W.focusDown)
         ,((modMask                      , xK_k), windows W.focusUp)
         ,((modMask                      , xK_m), windows W.focusMaster)
         ,((modMask .|. shiftMask        , xK_j), windows W.swapDown)
         ,((modMask .|. shiftMask        , xK_k), windows W.swapUp)
 	,((mod4Mask  			, xK_e), moveTo Next EmptyWS)
-	,((mod4Mask			, xK_c), windows W.focusDown)
-	,((mod4Mask .|. shiftMask	, xK_c), windows W.focusUp)
+        ,((modMask                      , xK_Tab), windows W.focusDown)
+        ,((modMask .|. shiftMask        , xK_Tab), windows W.focusUp)
+	,((mod4Mask			, xK_c), windows W.focusUp >> windows W.shiftMaster)
+	,((mod4Mask .|. shiftMask	, xK_c), windows W.focusDown >> windows W.shiftMaster)
         ,((modMask                      , xK_comma), sendMessage (IncMasterN 1))
         ,((modMask                      , xK_period), sendMessage (IncMasterN (-1)))
         ,((modMask                      , xK_space), sendMessage NextLayout)
